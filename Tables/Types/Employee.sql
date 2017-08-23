@@ -1,0 +1,10 @@
+﻿CREATE TYPE dbo.EmployeeType AS TABLE
+(
+	FirstName VARCHAR(255) NOT NULL,
+	LastName VARCHAR(255) NOT NULL,
+	UserName VARCHAR(255) NOT NULL,
+	PasswordHash  VARCHAR (255) NOT NULL,
+	CreatedBy INT NOT NULL,
+	PositionId INT NOT NULL,
+	RoleId INT NOT NULL
+);

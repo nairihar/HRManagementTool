@@ -1,0 +1,9 @@
+CREATE TABLE dbo.EvaluationForm (
+    Id INT NOT NULL IDENTITY(1,1) PRIMARY KEY,    
+    Notes VARCHAR(1000) NOT NULL,
+    CreatedDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+    JSONData NVARCHAR(4000) NOT NULL,   
+    EmployeeId INT REFERENCES dbo.Employee(Id) NOT NULL,
+    ScheduleIntervieweId INT REFERENCES ScheduleInterviewer(Id) ON DELETE CASCADE NOT NULL,
+	CONSTRAINT CK_FORM_ValidJSON CHECK (dbo.fnValidateJSON(JSONData) = 1)
+);

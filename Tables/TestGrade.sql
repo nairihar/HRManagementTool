@@ -1,0 +1,8 @@
+CREATE TABLE dbo.TestGrade (
+    Id INT IDENTITY (1,1) PRIMARY KEY,
+    Score TINYINT NOT NULL, 
+    ScheduleId  INT REFERENCES dbo.ScheduleTest(Id) ON DELETE CASCADE NOT NULL,
+    CandidateId INT REFERENCES dbo.CandIdate(Id) NOT NULL,
+    CreatedBy INT REFERENCES dbo.Employee(Id) NOT NULL,
+	CreatedDate DATETIME DEFAULT CURRENT_TIMESTAMP
+);

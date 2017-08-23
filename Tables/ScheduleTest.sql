@@ -1,0 +1,9 @@
+CREATE TABLE dbo.ScheduleTest (
+    Id INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+    MeetingDate DATETIME NOT NULL,
+    IsCancelled TINYINT DEFAULT 0,
+    CreatedDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+    HrId  INT REFERENCES dbo.Employee(Id) NOT NULL,
+    ModifedDate DATETIME DEFAULT NULL,
+    ModifedBy INT REFERENCES dbo.Employee(Id) DEFAULT NULL
+);

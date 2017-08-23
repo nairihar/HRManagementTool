@@ -1,0 +1,10 @@
+﻿CREATE TABLE dbo.ScheduleInterviewer (
+	Id INT IDENTITY(1,1) PRIMARY KEY,	
+	CreatedDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+	[Status] TINYINT DEFAULT 0,
+	Note VARCHAR(2000) DEFAULT NULL,
+	ModifedDate DATETIME DEFAULT NULL,
+	EmployeeId  INT REFERENCES dbo.Employee(Id) NOT NULL,
+	CreatedBy  INT REFERENCES dbo.Employee(Id) NOT NULL,
+	ScheduleId  INT REFERENCES dbo.ScheduleInterview(Id) ON DELETE CASCADE NOT NULL
+);

@@ -1,0 +1,7 @@
+CREATE TABLE dbo.CandidateStatusTypes (
+	Id INT IDENTITY(1,1) PRIMARY KEY,
+	[Status] VARCHAR(255) NOT NULL,
+	CreatedDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+	CreatedBy INT REFERENCES dbo.Employee(Id) DEFAULT NULL,
+	UNIQUE ([Status])
+);
